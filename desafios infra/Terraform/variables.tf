@@ -20,21 +20,30 @@ variable "aws_profile" {
 
 variable "aws_secgrp_port" {
 
-    type = number
+  type = number
 
-    description = "Portas to|from"
+  description = "Portas to|from"
 
-    default = 80
+  default = 80
 
 }
 
-variable "tcp" {
-  
-    type = string
-    
-    description = "tcp"
+variable "cidr_blocks" {
 
-    default = "tcp"
+  type = string
+
+  description = "when cidr_blocks equals '0.0.0.0/0'"
+
+  default = "0.0.0.0/0"
+}
+
+variable "tcp" {
+
+  type = string
+
+  description = "tcp"
+
+  default = "tcp"
 
 }
 
