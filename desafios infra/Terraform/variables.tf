@@ -37,6 +37,15 @@ variable "cidr_blocks" {
   default = "0.0.0.0/0"
 }
 
+variable "cidr_blocks_ssh" {
+
+  type = string
+
+  description = "when cidr_blocks is defined by usr'"
+
+  ##default = "0.0.0.0/0"
+}
+
 variable "tcp" {
 
   type = string
