@@ -18,6 +18,26 @@ variable "aws_profile" {
 
 }
 
+variable "aws_secgrp_port" {
+
+    type = number
+
+    description = "Portas to|from"
+
+    default = 80
+
+}
+
+variable "tcp" {
+  
+    type = string
+    
+    description = "tcp"
+
+    default = "tcp"
+
+}
+
 variable "instance_ami" {
 
   type = string
