@@ -1,6 +1,6 @@
 Desafio #1 Terraform:
 
-Criar uma instância t2.micro Linux utilizando Terraform: Ok!
+Criar uma instância t2.micro Linux utilizando Terraform: Ok!\n
 A instância deve ter aberta somente às portas 80 e 443 para todos os endereços: Ok!
 A porta SSH (22) deve estar acessível somente para um range IP definido: Andamento
 Inputs: A execução do projeto deve aceitar dois parâmetros:
