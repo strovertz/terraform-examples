@@ -9,6 +9,14 @@ resource "aws_security_group" "default" {
     cidr_blocks = [var.cidr_blocks]
   }
 
+  ingress {
+
+    from_port   = 443
+    to_port     = 443
+    protocol    = var.tcp
+    cidr_blocks = [var.cidr_blocks]
+
+  }
   # Liberar todo o tráfego de saida
   egress {
     from_port   = 0
