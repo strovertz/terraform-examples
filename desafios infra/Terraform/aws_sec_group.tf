@@ -1,5 +1,5 @@
 resource "aws_security_group" "mysecgroup" {
-  name   = "ec2-sec-ports"
+  name = "ec2-sec-ports"
   #vpc_id = aws_vpc.main.id
 
   # Liberar a porta 80 para acesso livre via Internet
@@ -30,8 +30,8 @@ resource "aws_security_group" "mysecgroup" {
   # Liberar todo o tráfego de saida
   egress {
     from_port   = 0
-    to_port     = 65535
-    protocol    = var.tcp
+    to_port     = 0
+    protocol    = -1
     cidr_blocks = [var.cidr_blocks]
   }
 }

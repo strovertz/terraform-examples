@@ -89,9 +89,14 @@ variable "instance_tags" {
   }
 }
 
-/*variable "sec_groups" {
+variable "PRIVATE_KEY_PATH" {
+  default = "aws-key"
+}
 
-  type = string
-  description = "Security Groups para desafio"
-  default = aws_security_group.mysecgroup.id
-}*/
+variable "PUBLIC_KEY_PATH" {
+  default = "aws-key.pub"
+}
+
+variable "EC2_USER" {
+  default = "ubuntu"
+}
