@@ -4,7 +4,10 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
-
+id_rsa.pub
+aws-key
+ignore
+testev1
 # Crash log files
 crash.log
 crash.*.log

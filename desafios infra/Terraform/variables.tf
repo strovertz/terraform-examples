@@ -94,7 +94,7 @@ variable "PRIVATE_KEY_PATH" {
 }
 
 variable "PUBLIC_KEY_PATH" {
-  default = "aws-key.pub"
+  default = "id_rsa.pub"
 }
 
 variable "EC2_USER" {
