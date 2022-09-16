@@ -89,12 +89,12 @@ variable "instance_tags" {
   }
 }
 
-/*variable "sec_groups" {
+variable "sec_groups" {
 
-  type = map(string)
-  description = "Security Groups para desafrio"
-  default = aws_security_group.default.id, aws_security_group.ssh_open.id
+  type = string
+  description = "Security Groups para desafio"
+  default = aws_security_group.mysecgroup.id
   
 
   
-}*/
+}

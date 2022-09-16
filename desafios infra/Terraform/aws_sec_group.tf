@@ -1,4 +1,4 @@
-resource "aws_security_group" "default" {
+resource "aws_security_group" "mysecgroup" {
   name = "ec2-sec-ports"
   #vpc_id = aws_vpc.my_vpc.id
 
