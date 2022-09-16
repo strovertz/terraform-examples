@@ -89,12 +89,9 @@ variable "instance_tags" {
   }
 }
 
-variable "sec_groups" {
+/*variable "sec_groups" {
 
   type = string
   description = "Security Groups para desafio"
   default = aws_security_group.mysecgroup.id
-  
-
-  
-}
+}*/
