@@ -14,7 +14,7 @@ A região da cloud em que será provisionada a instância: Ok!
 
 Outputs: A execução deve imprimir o IP público da instância
 
-Pré-instalar o docker na instância que suba automaticamente a imagem do NGINX, tornando a página visualizável ao acessar o IP público da instância
+Pré-instalar o docker na instância que suba automaticamente a imagem do NGINX, tornando a página visualizável ao acessar o IP público da instância: 
 
 ```
 **Desafio 2:* Ainda não verificado!

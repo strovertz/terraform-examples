@@ -60,9 +60,9 @@ variable "instance_ami" {
 
   type = string
 
-  description = "AMI da instancia"
+  description = "AMI do ubuntu"
 
-  default = "ami-05fa00d4c63e32376"
+  default = "ami-052efd3df9dad4825"
 }
 
 variable "instance_type" {
@@ -82,9 +82,9 @@ variable "instance_tags" {
 
   default = {
 
-    Name = "Teste-inicial"
+    Name = "Servidor-Nginx"
 
-    Project = "Terraform testes"
+    Project = "Desafio 1 - Instancia com Nginx"
 
   }
 }

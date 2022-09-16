@@ -1,6 +1,6 @@
 resource "aws_security_group" "mysecgroup" {
   name = "ec2-sec-ports"
-  #vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.nginx-vpc.id
 
   # Liberar a porta 80 para acesso livre via Internet
   ingress {
