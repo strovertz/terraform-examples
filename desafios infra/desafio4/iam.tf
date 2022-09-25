@@ -17,6 +17,21 @@ resource "aws_iam_role" "eks-iam" {
 POLICY
 }
 
+resource "aws_iam_role" "node-group-iam" {
+  name = "eks-node-group-iam"
+
+  assume_role_policy = jsonencode({
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "ec2.amazonaws.com"
+      }
+    }]
+    Version = "2012-10-17"
+  })
+}
+
 resource "aws_iam_policy" "cluster-autoscaler-policy" {
   name        = "cluster-autoscaler-policy"
   description = "a política do IAM que conceda as permissões que o Cluster Autoscaler exige para usar uma função do IAM"
@@ -66,4 +81,19 @@ resource "aws_iam_role_policy_attachment" "ekscluster-AmazonEKSClusterPolicy" {
 resource "aws_iam_role_policy_attachment" "EKS-AmazonEKSVPCResourceController" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
   role       = aws_iam_role.eks-iam.name
+}
+
+resource "aws_iam_role_policy_attachment" "node-group-iam-AmazonEKSWorkerNodePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  role       = aws_iam_role.node-group-iam.name
+}
+
+resource "aws_iam_role_policy_attachment" "node-group-iam-AmazonEKS_CNI_Policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+  role       = aws_iam_role.node-group-iam.name
+}
+
+resource "aws_iam_role_policy_attachment" "node-group-iam-AmazonEC2ContainerRegistryReadOnly" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+  role       = aws_iam_role.node-group-iam.name
 }

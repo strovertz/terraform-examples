@@ -14,7 +14,7 @@ resource "aws_eks_node_group" "nginx" {
 
   remote_access {
     ec2_ssh_key            = var.PRIVATE_KEY_PATH
-    vpc_security_group_ids = [aws_security_group.mysecgroup.id]
+    //vpc_security_group_ids = [aws_security_group.mysecgroup.id]
   }
 
   instance_types = [var.instance_type]
