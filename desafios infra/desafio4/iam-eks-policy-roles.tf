@@ -18,42 +18,42 @@ POLICY
 }
 
 resource "aws_iam_policy" "cluster-autoscaler-policy" {
-  name = "cluster-autoscaler-policy"
+  name        = "cluster-autoscaler-policy"
   description = "a política do IAM que conceda as permissões que o Cluster Autoscaler exige para usar uma função do IAM"
 
   policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "autoscaling:SetDesiredCapacity",
-                "autoscaling:TerminateInstanceInAutoScalingGroup"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/k8s.io/cluster-autoscaler/my-cluster": "owned"
-                }
-            }
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": [
-                "autoscaling:DescribeAutoScalingInstances",
-                "autoscaling:DescribeAutoScalingGroups",
-                "ec2:DescribeLaunchTemplateVersions",
-                "autoscaling:DescribeTags",
-                "autoscaling:DescribeLaunchConfigurations"
-            ],
-            "Resource": "*"
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Sid" : "VisualEditor0",
+        "Effect" : "Allow",
+        "Action" : [
+          "autoscaling:SetDesiredCapacity",
+          "autoscaling:TerminateInstanceInAutoScalingGroup"
+        ],
+        "Resource" : "*",
+        "Condition" : {
+          "StringEquals" : {
+            "aws:ResourceTag/k8s.io/cluster-autoscaler/my-cluster" : "owned"
+          }
         }
+      },
+      {
+        "Sid" : "VisualEditor1",
+        "Effect" : "Allow",
+        "Action" : [
+          "autoscaling:DescribeAutoScalingInstances",
+          "autoscaling:DescribeAutoScalingGroups",
+          "ec2:DescribeLaunchTemplateVersions",
+          "autoscaling:DescribeTags",
+          "autoscaling:DescribeLaunchConfigurations"
+        ],
+        "Resource" : "*"
+      }
     ]
-}
-  ) 
-  
+    }
+  )
+
 }
 
 resource "aws_iam_role_policy_attachment" "ekscluster-AmazonEKSClusterPolicy" {
