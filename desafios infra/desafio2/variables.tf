@@ -43,7 +43,7 @@ variable "cidr_blocks_ssh" {
 
   description = "when cidr_blocks is defined by usr'"
 
-  ##default = "0.0.0.0/0"
+  default = "0.0.0.0/0"
 }
 
 variable "tcp" {
@@ -71,7 +71,7 @@ variable "instance_type" {
 
   description = "Instance type"
 
-  default = "t3.micro"
+  default = "t3.medium"
 }
 
 variable "instance_tags" {
@@ -84,7 +84,7 @@ variable "instance_tags" {
 
     Name = "Servidor-Nginx"
 
-    Project = "Desafio 1 - Instancia com Nginx"
+    Project = "Desafio 2 - Clustar com pod Nginx"
 
   }
 }
