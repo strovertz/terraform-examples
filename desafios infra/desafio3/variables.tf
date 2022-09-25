@@ -1,11 +1,13 @@
 variable "aws_profile" {
   type        = string
   description = "Meu profile da aws"
+  default = "gasilva"
 }
 
 variable "aws_region" {
   type        = string
   description = "aws services region"
+  default = "us-east-1"
 }
 
 variable "instance_type" {
@@ -14,7 +16,7 @@ variable "instance_type" {
   default     = "t3.medium"
 }
 
-variable "intance_tags_master" {
+variable "instance_tags_master" {
   type        = map(string)
   description = "tags da instancia"
   default = {
@@ -22,7 +24,7 @@ variable "intance_tags_master" {
   }
 }
 
-variable "intance_tags_worker" {
+variable "instance_tags_worker" {
   type        = map(string)
   description = "tags da instancia"
   default = {
@@ -73,7 +75,7 @@ variable "cidr_blocks_ssh" {
 
   description = "when cidr_blocks is defined by usr'"
 
-  ##default = "0.0.0.0/0"
+  default = "0.0.0.0/0"
 }
 
 variable "tcp" {

@@ -12,7 +12,7 @@ resource "aws_instance" "web1" {
 resource "aws_instance" "web2" {
   ami                    = var.instance_ami
   instance_type          = var.instance_type
-  tags                   = var.instance_tags.worker
+  tags                   = var.instance_tags_worker
   vpc_security_group_ids = [aws_security_group.mysecgroup.id]
   subnet_id              = aws_subnet.prod-subnet-public-1.id
   key_name               = aws_key_pair.aws-key.id
@@ -43,10 +43,8 @@ resource "aws_instance" "web2" {
 resource "aws_instance" "web3" {
   ami                    = var.instance_ami
   instance_type          = var.instance_type
-  tags                   = var.instance_tags.worker
+  tags                   = var.instance_tags_worker
   vpc_security_group_ids = [aws_security_group.mysecgroup.id]
   subnet_id              = aws_subnet.prod-subnet-public-1.id
   key_name               = aws_key_pair.aws-key.id
-
-
 }
