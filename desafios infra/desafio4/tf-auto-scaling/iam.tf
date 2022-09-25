@@ -1,38 +1,33 @@
 # Policy
-data "aws_iam_policy_document" "kubernetes_cluster_autoscaler" {
-  count = var.enabled ? 1 : 0
-
-  statement {
-    actions = [
-      "autoscaling:DescribeAutoScalingGroups",
-      "autoscaling:DescribeAutoScalingInstances",
-      "autoscaling:DescribeLaunchConfigurations",
-      "autoscaling:DescribeTags",
-      "autoscaling:SetDesiredCapacity",
-      "autoscaling:TerminateInstanceInAutoScalingGroup",
-      "ec2:DescribeLaunchTemplateVersions"
-    ]
-    resources = [
-      "*",
-    ]
-    effect = "Allow"
-  }
-
-}
-
-resource "aws_iam_policy" "kubernetes_cluster_autoscaler" {
-  depends_on  = [var.mod_dependency]
-  count       = var.enabled ? 1 : 0
-  name        = "${var.cluster_name}-cluster-autoscaler"
+resource "aws_iam_policy" "kubernetes_cluster_autoscaler"{
+  name        = "kubernetes_cluster_autoscaler"
   path        = "/"
-  description = "Policy for cluster autoscaler service"
+  description = "kubernetes_cluster_autoscaler"
 
-  policy = data.aws_iam_policy_document.kubernetes_cluster_autoscaler[0].json
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "autoscaling:DescribeAutoScalingGroups",
+          "autoscaling:DescribeAutoScalingInstances",
+          "autoscaling:DescribeLaunchConfigurations",
+          "autoscaling:DescribeTags",
+          "autoscaling:SetDesiredCapacity",
+          "autoscaling:TerminateInstanceInAutoScalingGroup",
+          "ec2:DescribeLaunchTemplateVersions"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
 }
 
 # Role
 data "aws_iam_policy_document" "kubernetes_cluster_autoscaler_assume" {
-  count = var.enabled ? 1 : 0
 
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]
@@ -56,13 +51,11 @@ data "aws_iam_policy_document" "kubernetes_cluster_autoscaler_assume" {
 }
 
 resource "aws_iam_role" "kubernetes_cluster_autoscaler" {
-  count              = var.enabled ? 1 : 0
   name               = "${var.cluster_name}-cluster-autoscaler"
-  assume_role_policy = data.aws_iam_policy_document.kubernetes_cluster_autoscaler_assume[0].json
+  assume_role_policy = data.aws_iam_policy_document.kubernetes_cluster_autoscaler_assume.json
 }
 
 resource "aws_iam_role_policy_attachment" "kubernetes_cluster_autoscaler" {
-  count      = var.enabled ? 1 : 0
-  role       = aws_iam_role.kubernetes_cluster_autoscaler[0].name
-  policy_arn = aws_iam_policy.kubernetes_cluster_autoscaler[0].arn
+  role       = aws_iam_role.kubernetes_cluster_autoscaler.name
+  policy_arn = aws_iam_policy.kubernetes_cluster_autoscaler.arn
 }
