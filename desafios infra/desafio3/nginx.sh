@@ -9,8 +9,6 @@ until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
 done
 #criand nosso user
 sudo useradd -m $novo_usuario -p $(openssl passwd -1 $senha1) -s /bin/bash
-chown -R $nome /home/$nome
-echo "Usuario criado"
 
 sudo usermod -aG sudo ubuntus
 
