@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "desafio-4" {
-  name     = "desafio-4"
+  name     = var.cluster_name
   role_arn = aws_iam_role.eks-iam.arn
 
   vpc_config {
