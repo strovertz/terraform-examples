@@ -35,3 +35,53 @@ variable "instance_ami" {
   description = "AMI ubuntu"
   default     = "ami-052efd3df9dad4825"
 }
+
+variable "PRIVATE_KEY_PATH" {
+  default = "aws-key"
+}
+
+variable "PUBLIC_KEY_PATH" {
+  default = "id_rsa.pub"
+}
+
+variable "EC2_USER" {
+  default = "ubuntu"
+}
+
+variable "aws_secgrp_port" {
+
+  type = number
+
+  description = "Portas to|from"
+
+  default = 80
+
+}
+
+variable "cidr_blocks" {
+
+  type = string
+
+  description = "when cidr_blocks equals '0.0.0.0/0'"
+
+  default = "0.0.0.0/0"
+}
+
+variable "cidr_blocks_ssh" {
+
+  type = string
+
+  description = "when cidr_blocks is defined by usr'"
+
+  ##default = "0.0.0.0/0"
+}
+
+variable "tcp" {
+
+  type = string
+
+  description = "tcp"
+
+  default = "tcp"
+
+}
