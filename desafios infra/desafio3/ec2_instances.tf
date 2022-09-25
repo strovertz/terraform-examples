@@ -16,13 +16,13 @@ resource "aws_instance" "web2" {
   vpc_security_group_ids = [aws_security_group.mysecgroup.id]
   subnet_id              = aws_subnet.prod-subnet-public-1.id
   key_name               = aws_key_pair.aws-key.id
-  
+
   #Jogar o script pra instancia
   provisioner "file" {
     source      = "nginx.sh"
     destination = "/tmp/nginx.sh"
   }
-  
+
   #Rodar o  script
   provisioner "remote-exec" {
     inline = [
