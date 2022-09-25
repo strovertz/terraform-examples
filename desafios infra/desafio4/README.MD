@@ -18,5 +18,7 @@ Objetivo:
     Acessar seu nginx server localmente por meio do comando "kubectl port-forward"
 
 ´´´
+
 Extras:
+
     Crie um nodegroup "monitoring", um namespace "monitoring" e faça o deployment do prometheus+grafana
