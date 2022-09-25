@@ -3,6 +3,9 @@ resource "aws_subnet" "prod-subnet-public-1" {
   cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = "true" // Makes this a public subnet
   availability_zone       = "us-east-1a"
+  tags = {
+    Name = "Nginx-Prod1-Subnet"
+  }
 }
 
 resource "aws_subnet" "prod-subnet-public-2" {
@@ -10,4 +13,7 @@ resource "aws_subnet" "prod-subnet-public-2" {
   cidr_block              = "10.0.0.0/24"
   map_public_ip_on_launch = "true" // Makes this a public subnet
   availability_zone       = "us-east-1b"
+    tags = {
+    Name = "Prod2-Subnet"
+  }
 }

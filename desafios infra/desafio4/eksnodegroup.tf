@@ -1,8 +1,8 @@
 resource "aws_eks_node_group" "nginx" {
   cluster_name    = aws_eks_cluster.desafio-4.name
-  node_group_name = "Nginx Node Group"
+  node_group_name = "nginx"
   node_role_arn   = aws_iam_role.node-group-iam.arn
-  subnet_ids      = aws_subnet.prod-subnet-public-1.id
+  subnet_ids = [aws_subnet.prod-subnet-public-1.id, aws_subnet.prod-subnet-public-2.id]
 
   scaling_config {
     desired_size = 1
@@ -13,7 +13,7 @@ resource "aws_eks_node_group" "nginx" {
   }
     
   instance_types = [var.instance_type]
-  
+
   update_config {
     max_unavailable = 1
   }
