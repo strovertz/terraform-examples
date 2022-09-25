@@ -3,9 +3,9 @@ Objetivo:
 
 ´´´
 
-    Criar um cluster EKS por meio do terraform: OK
+    Criar um cluster EKS por meio do terraform: OK!
 
-    Criar e associar um nodegroup "nginx" a esse cluster EKS por meio do terraform (instâncias t3.medium)
+    Criar e associar um nodegroup "nginx" a esse cluster EKS por meio do terraform (instâncias t3.medium): OK!
 
     Criar um autoscaling group associado ao nodegroup de nginx por meio do terraform (Valores do autoscaling: máximo 3, mínimo 1)
 
