@@ -1,6 +1,8 @@
 **Desafio 04: Terraform + EKS**
 Objetivo:
+
 ´´´
+
     Criar um cluster EKS por meio do terraform: OK
 
     Criar e associar um nodegroup "nginx" a esse cluster EKS por meio do terraform (instâncias t3.medium)
@@ -14,7 +16,7 @@ Objetivo:
     Fazer o deployment de uma imagem nginx e um serviço ClusterIP associado
 
     Acessar seu nginx server localmente por meio do comando "kubectl port-forward"
-    
+
 ´´´
 Extras:
     Crie um nodegroup "monitoring", um namespace "monitoring" e faça o deployment do prometheus+grafana
