@@ -1,4 +1,5 @@
 **Desafio 03: Terraform + Kubernetes**
+
 ´´´
 Criar três instâncias t3.medium Linux utilizando Terraform.
 
@@ -8,7 +9,9 @@ Subir um pod com uma imagem http (no padrão HelloWorld) e um service NodePort r
 
 Habilitar o acesso externo ao serviço de modo que consigamos acessar pelo endereço http://<WORKER_NODE_IP>:PORT
 ´´´
+
 **Extras**
+
 ´´´
 Automatização das configuração de cada máquina pelo bootstrap file bash_script (instance user_data: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#user_data)
 
