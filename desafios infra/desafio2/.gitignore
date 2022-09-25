@@ -4,6 +4,7 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
+.gitignore
 id_rsa.pub
 aws-key
 ignore
