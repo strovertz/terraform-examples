@@ -7,9 +7,9 @@ Objetivo:
 
     Criar e associar um nodegroup "nginx" a esse cluster EKS por meio do terraform (instâncias t3.medium): OK!
 
-    Criar um autoscaling group associado ao nodegroup de nginx por meio do terraform (Valores do autoscaling: máximo 3, mínimo 1)
+    Criar um autoscaling group associado ao nodegroup de nginx por meio do terraform (Valores do autoscaling: máximo 3, mínimo 1): OK!
 
-    Aplicar corretamente o deployment de autoscaling do EKS: https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html
+    Aplicar corretamente o deployment de autoscaling do EKS: https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html: OK!
 
     Por meio do AWS CLI, conectar-se ao cluster EKS por meio do comando "update-kubeconfig"
 
