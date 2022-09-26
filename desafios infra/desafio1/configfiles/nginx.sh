@@ -1,4 +1,5 @@
 #!/bin/bash
+#caso queira rodar nginx sem docker
 # aguarda a instancia iniciar
 until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
   sleep 1

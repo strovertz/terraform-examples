@@ -100,3 +100,20 @@ variable "PUBLIC_KEY_PATH" {
 variable "EC2_USER" {
   default = "ubuntu"
 }
+
+/*variable "ec2" {
+  description = "The attribute of EC2 information"
+  type = object({
+    name              = "ppshein"
+    os_type           = "ubuntu"
+    instance_type     = "t2.micro"
+    volume_size       = 20
+    volume_type       = "gp3"
+    availability_zone = "us-east-1a"
+  })
+}*/
+variable "os_type" {
+  type    = string
+  default = "ubuntu"
+
+}

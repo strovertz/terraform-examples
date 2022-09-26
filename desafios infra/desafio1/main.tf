@@ -16,5 +16,5 @@ provider "aws" {
 
 resource "aws_key_pair" "aws-key" {
   key_name   = "aws-key"
-  public_key = file(var.PUBLIC_KEY_PATH)// Path is in the variables file
+  public_key = file(var.PUBLIC_KEY_PATH) // Path is in the variables file
 }

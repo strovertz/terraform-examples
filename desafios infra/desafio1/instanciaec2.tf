@@ -8,22 +8,14 @@ resource "aws_instance" "web" {
 
   #Jogar o script pra instancia
   provisioner "file" {
-    source      = "docker.sh"
-    destination = "/tmp/nginx.sh"
-  }
-  provisioner "file" {
-    source      = "dockerfile"
-    destination = "/tmp/dockerfile"
-  }
-  provisioner "file" {
-    source      = "default"
-    destination = "/tmp/default"
+    source      = "/configfiles/ubuntu.sh"
+    destination = "/tmp/ubuntu.sh"
   }
   #Rodar o  script
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/nginx.sh",
-      "sudo /tmp/nginx.sh"
+      "chmod +x /tmp/ubuntu.sh",
+      "sudo /tmp/ubuntu.sh"
     ]
   }
   #key ssh
