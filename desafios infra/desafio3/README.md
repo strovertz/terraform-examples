@@ -1,6 +1,6 @@
 # Desafio 03: Terraform + Kubernetes
 
-- Criar três instâncias t3.medium Linux utilizando Terraform.
+- Criar três instâncias t3.medium Linux utilizando Terraform: OK!
 - Configurá-las como 1 master e 2 workers por meio do kubeadm - Os comandos relacionados podem ser econtrados nesse link: https://github.com/badtuxx/DescomplicandoKubernetes/blob/main/pt/day_one/descomplicando_kubernetes.md#instala%C3%A7%C3%A3o-em-cluster-com-truuuuuuu
 - Subir um pod com uma imagem http (no padrão HelloWorld) e um service NodePort relacionado (ex: nginx, httpd etc)
 - Habilitar o acesso externo ao serviço de modo que consigamos acessar pelo endereço http://<WORKER_NODE_IP>:PORT

@@ -8,21 +8,21 @@ until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
   sleep 2
 done
 #criand nosso user
-sudo useradd -m $novo_usuario -p $(openssl passwd -1 $senha1) -s /bin/bash
+#sudo useradd -m $novo_usuario -p $(openssl passwd -1 $senha1) -s /bin/bash
 
-sudo usermod -aG sudo ubuntus
+#sudo usermod -aG sudo ubuntus
 
-sudo su ubuntus
+#sudo su ubuntus
 
 # Instala o kubectl
 
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 
-chmod +x ./kubectl
+sudo chmod +x ./kubectl
 
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-kubectl version --client
+sudo kubectl version --client
 
 #criando alias e auto complete
 source <(kubectl completion bash) # configura o autocomplete na sua sessão atual (antes, certifique-se de ter instalado o pacote bash-completion).
@@ -35,10 +35,7 @@ complete -F __start_kubectl k
 
 #instalação do minikube
 
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-
-yes Y | sudo apt update
-yes Y | sudo apt upgrade
+sudo curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
 yes Y | chmod +x ./minikube
 
@@ -47,13 +44,14 @@ sudo mv ./minikube /usr/local/bin/minikube
 minikube version
 
 #intalando kvm
-yes Y | sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+yes Y | sudo apt update
+sudo apt-get install qemu uml-utilities virt-manager git wget libguestfs-tools p7zip-full uml-utilities virt-viewer qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils -y
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
 
-sudo adduser ubuntus libvirtd
+#exit
 
-exit
-
-su ubuntus
+#su ubuntus
 
 #startando minikube
 yes Y | minikube start --vm-driver kvm2

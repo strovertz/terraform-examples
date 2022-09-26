@@ -24,12 +24,12 @@ resource "aws_instance" "web2" {
   }
 
   #Rodar o  script
-  provisioner "remote-exec" {
+  /*provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/nginx.sh",
       "sudo /tmp/nginx.sh"
     ]
-  }
+  }*/
 
   #key ssh
   connection {

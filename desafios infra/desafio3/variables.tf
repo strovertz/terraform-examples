@@ -78,6 +78,12 @@ variable "cidr_blocks_ssh" {
   default = "0.0.0.0/0"
 }
 
+variable "kube_api_port" {
+  type        = number
+  default     = 6443
+  description = "Kubeapi Port"
+}
+
 variable "tcp" {
 
   type = string
@@ -86,4 +92,141 @@ variable "tcp" {
 
   default = "tcp"
 
+}
+
+
+variable "k8s_master_template_prefix" {
+  type    = string
+  default = "k8s_master_tpl"
+}
+
+variable "k8s_worker_template_prefix" {
+  type    = string
+  default = "k8s_worker_tpl"
+}
+
+variable "k8s_version" {
+  type    = string
+  default = "1.23.5"
+}
+
+variable "k8s_pod_subnet" {
+  type    = string
+  default = "10.244.0.0/16"
+}
+
+variable "k8s_service_subnet" {
+  type    = string
+  default = "10.96.0.0/12"
+}
+
+variable "k8s_dns_domain" {
+  type    = string
+  default = "cluster.local"
+}
+
+variable "k8s_internal_lb_name" {
+  type    = string
+  default = "k8s-server-tcp-lb"
+}
+
+variable "k8s_server_desired_capacity" {
+  type        = number
+  default     = 3
+  description = "k8s server ASG desired capacity"
+}
+
+variable "k8s_server_min_capacity" {
+  type        = number
+  default     = 3
+  description = "k8s server ASG min capacity"
+}
+
+variable "k8s_server_max_capacity" {
+  type        = number
+  default     = 4
+  description = "k8s server ASG max capacity"
+}
+
+variable "k8s_worker_desired_capacity" {
+  type        = number
+  default     = 3
+  description = "k8s server ASG desired capacity"
+}
+
+variable "k8s_worker_min_capacity" {
+  type        = number
+  default     = 3
+  description = "k8s server ASG min capacity"
+}
+
+variable "k8s_worker_max_capacity" {
+  type        = number
+  default     = 4
+  description = "k8s server ASG max capacity"
+}
+
+variable "cluster_name" {
+  type        = string
+  default     = "k8s-cluster"
+  description = "Cluster name"
+}
+
+
+variable "PATH_TO_PUBLIC_LB_CERT" {
+  type        = string
+  description = "Path to the public LB https certificate"
+  default = "privatekey.pem"
+}
+
+variable "PATH_TO_PUBLIC_LB_KEY" {
+  type        = string
+  description = "Path to the public LB key"
+  default = "public.crt"
+}
+
+variable "install_longhorn" {
+  type    = bool
+  default = false
+}
+
+variable "longhorn_release" {
+  type    = string
+  default = "v1.2.3"
+}
+
+variable "install_nginx_ingress" {
+  type        = bool
+  default     = false
+  description = "Create external LB true/false"
+}
+
+variable "k8s_ext_lb_name" {
+  type    = string
+  default = "k8s-ext-lb"
+}
+
+variable "extlb_listener_http_port" {
+  type    = number
+  default = 30080
+}
+
+variable "extlb_listener_https_port" {
+  type    = number
+  default = 30443
+}
+
+variable "extlb_http_port" {
+  type    = number
+  default = 80
+}
+
+variable "extlb_https_port" {
+  type    = number
+  default = 443
+}
+
+variable "s3_bucket_name" {
+  type    = string
+  default = "my-bucket-k8s"
 }
