@@ -2,7 +2,7 @@ resource "aws_lb" "k8s-server-lb" {
   name               = var.k8s_internal_lb_name
   load_balancer_type = "network"
   internal           = "true"
-  subnets            = aws_subnet.prod-subnet-public-1.id
+  subnets            = var.vpc_public_subnets
 
   enable_cross_zone_load_balancing = true
 

@@ -13,7 +13,7 @@ variable "aws_region" {
 variable "instance_type" {
   type        = string
   description = "Tipo da instancia"
-  default     = "t3.medium"
+  default     = "t2.small"
 }
 
 variable "instance_tags_master" {
@@ -229,4 +229,9 @@ variable "extlb_https_port" {
 variable "s3_bucket_name" {
   type    = string
   default = "my-bucket-k8s"
+}
+
+variable "vpc_public_subnets" {
+  type        = list(any)
+  description = "The public vpc subnets ids"
 }

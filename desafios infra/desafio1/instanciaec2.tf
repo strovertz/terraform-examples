@@ -8,8 +8,16 @@ resource "aws_instance" "web" {
 
   #Jogar o script pra instancia
   provisioner "file" {
-    source      = "nginx.sh"
+    source      = "docker.sh"
     destination = "/tmp/nginx.sh"
+  }
+  provisioner "file" {
+    source      = "dockerfile"
+    destination = "/tmp/dockerfile"
+  }
+  provisioner "file" {
+    source      = "default"
+    destination = "/tmp/default"
   }
   #Rodar o  script
   provisioner "remote-exec" {
