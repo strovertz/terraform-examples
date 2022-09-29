@@ -157,6 +157,7 @@ variable "helm_chart_repo" {
 variable "cluster_name" {
   type        = string
   description = "The name of the cluster"
+  default     = "gleison"
 }
 
 variable "service_account_name" {

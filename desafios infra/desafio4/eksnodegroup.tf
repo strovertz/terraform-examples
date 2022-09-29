@@ -20,22 +20,6 @@ resource "aws_eks_node_group" "nginx" {
     aws_iam_role_policy_attachment.node-group-iam-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.node-group-iam-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.node-group-iam-AmazonEC2ContainerRegistryReadOnly,
+    aws_eks_cluster.desafio-4
   ]
-}
-
-resource "aws_autoscaling_group_tag" "example" {
-  for_each = toset(
-    [for asg in flatten(
-      [for resources in aws_eks_node_group.nginx.resources : resources.autoscaling_groups]
-    ) : asg.name]
-  )
-
-  autoscaling_group_name = aws_autoscaling_group.bar.name
-
-  tag {
-    key   = "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType"
-    value = "SPOT"
-
-    propagate_at_launch = false
-  }
 }

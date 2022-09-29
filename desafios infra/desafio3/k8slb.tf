@@ -2,7 +2,7 @@ resource "aws_lb" "k8s-server-lb" {
   name               = var.k8s_internal_lb_name
   load_balancer_type = "network"
   internal           = "true"
-  subnets            = var.vpc_public_subnets
+  subnets            = aws_subnet.prod-subnet-public-1.id
 
   enable_cross_zone_load_balancing = true
 
@@ -12,6 +12,9 @@ resource "aws_lb" "k8s-server-lb" {
       Name = "lb-namehere"
     }
   )
+ /*   depends_on = [
+    aws_subnet.prod-subnet-public-1
+  ]*/
 }
 
 resource "aws_lb_listener" "k8s-server-listener" {
@@ -31,6 +34,7 @@ resource "aws_lb_listener" "k8s-server-listener" {
       Name = "lb-listener-gleison"
     }
   )
+
 }
 
 resource "aws_lb_target_group" "k8s-server-tg" {

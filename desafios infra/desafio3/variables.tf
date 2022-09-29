@@ -231,7 +231,8 @@ variable "s3_bucket_name" {
   default = "my-bucket-k8s"
 }
 
-variable "vpc_public_subnets" {
-  type        = list(any)
+/*variable "vpc_public_subnets" {
+  type        = string
   description = "The public vpc subnets ids"
-}
+  default = "prod-subnet-public-1"
+}*/

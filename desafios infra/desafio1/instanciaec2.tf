@@ -8,7 +8,7 @@ resource "aws_instance" "web" {
 
   #Jogar o script pra instancia
   provisioner "file" {
-    source      = "/configfiles/ubuntu.sh"
+    source      = "./configfiles/ubuntu.sh"
     destination = "/tmp/ubuntu.sh"
   }
   #Rodar o  script

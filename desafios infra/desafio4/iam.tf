@@ -32,7 +32,7 @@ resource "aws_iam_role" "node-group-iam" {
   })
 }
 
-/*resource "aws_iam_policy" "cluster-autoscaler-policy" {
+resource "aws_iam_policy" "cluster-autoscaler-policy" {
   name        = "cluster-autoscaler-policy"
   description = "a política do IAM que conceda as permissões que o Cluster Autoscaler exige para usar uma função do IAM"
 
@@ -49,7 +49,7 @@ resource "aws_iam_role" "node-group-iam" {
         "Resource" : "*",
         "Condition" : {
           "StringEquals" : {
-            "aws:ResourceTag/k8s.io/cluster-autoscaler/my-cluster" : "owned"
+            "aws:ResourceTag/k8s.io/cluster-autoscaler/gleison" : "owned"
           }
         }
       },
@@ -69,7 +69,7 @@ resource "aws_iam_role" "node-group-iam" {
     }
   )
 
-}*/
+}
 
 resource "aws_iam_role_policy_attachment" "ekscluster-AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
