@@ -1,0 +1,13 @@
+#caso queira construir a propria imagem do nginx
+FROM ubuntu:16.04
+# Instala o Nginx
+RUN apt-get -y update && apt-get -y install nginx
+
+#  copia o arquivo de configuração do nginx
+COPY default /etc/nginx/sites-available/default
+
+# Expõe a porta 80 para acesso 
+EXPOSE 80/tcp
+
+# Roda o server nginx
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
